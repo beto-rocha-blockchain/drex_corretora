@@ -1,0 +1,4 @@
+flask
+web3
+solcx
+py-solc-x

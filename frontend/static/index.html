@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corretora DREX</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body>
+
+<h2>Corretora DREX - Criar Conta</h2>
+<button onclick="criarCarteira()">Criar Carteira</button>
+<p id="endereco"></p>
+<p id="chavePrivada"></p>
+
+<h2>Login</h2>
+<form id="loginForm" onsubmit="fazerLogin(event)">
+    <label for="chavePrivada">Chave Privada:</label>
+    <input type="text" id="chavePrivada" required>
+    <button type="submit">Login</button>
+</form>
+
+<script>
+    async function criarCarteira() {
+        const resposta = await axios.post('http://127.0.0.1:5000/criar_carteira');
+        document.getElementById("endereco").innerText = `Endereço: ${resposta.data.endereco}`;
+        document.getElementById("chavePrivada").innerText = `Chave Privada: ${resposta.data.chave_privada}`;
+    }
+
+    async function fazerLogin(event) {
+        event.preventDefault();
+        const chavePrivada = document.getElementById("chavePrivada").value;
+        const resposta = await axios.post('http://127.0.0.1:5000/login', { chave_privada: chavePrivada });
+        alert(resposta.data.status === 'sucesso' ? `Login bem-sucedido! Endereço: ${resposta.data.endereco}` : `Erro: ${resposta.data.mensagem}`);
+    }
+</script>
+
+</body>
+</html>
