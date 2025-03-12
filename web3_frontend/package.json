@@ -1,0 +1,18 @@
+{
+    "name": "corretora-drex",
+    "version": "1.0.0",
+    "description": "Corretora DREX para negociação de criptomoedas",
+    "main": "index.html",
+    "scripts": {
+      "start": "live-server ."
+    },
+    "dependencies": {
+      "web3": "^5.23.0"
+    },
+    "devDependencies": {
+      "live-server": "^1.2.1"
+    },
+    "author": "Seu Nome",
+    "license": "MIT"
+  }
+  
