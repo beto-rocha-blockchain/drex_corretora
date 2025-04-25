@@ -24,7 +24,7 @@ Este é o projeto de uma corretora de criptomoedas e tokens, desenvolvida para o
 ### Requisitos
 
 - Python 3.x
-- Node.js (para o frontend)
+- Node.js (para o backend)
 - Ganache ou nó Ethereum local
 - Solidity Compiler (solc)
 
